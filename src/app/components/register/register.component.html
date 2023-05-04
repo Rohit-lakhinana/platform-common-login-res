@@ -1,0 +1,75 @@
+<div class="side-img">
+  <p class="font">We're better </p><br>
+  <p class="font">together</p><br>
+  <h4>Join our community of volunteers and change makers of tomorrow.</h4>
+  <img src="https://cdn.dribbble.com/users/4781516/screenshots/10796279/6e3f47bf33153bd352d684a4d0ddea12.gif" width="400" height="300">
+</div>
+
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="end center">
+  <mat-card class="box mat-card">
+    <mat-card-header>
+      <mat-card-title>Register</mat-card-title>
+    </mat-card-header>
+
+    <form class="example-form" #registerForm="ngForm" (ngSubmit)="(registerForm)">
+
+      <mat-card-content>
+        <div fxLayout="row" fxLayoutGap="20px">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="First Name" name="firstName" required ngModel>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Last Name" name="lastName" required ngModel>
+          </mat-form-field>
+        </div>
+
+        <div fxLayout="row" fxLayoutGap="20px">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Phone Number" name="phoneNumber" required ngModel>
+            <div *ngIf="registerForm.controls.phoneNumber?.invalid && (registerForm.controls.phoneNumber?.dirty || registerForm.submitted)">
+              <mat-error>Please enter a valid phone number.</mat-error>
+            </div>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <input matInput [matDatepicker]="dobPicker" placeholder="Date of Birth" name="dob" required ngModel>
+            <mat-datepicker-toggle matSuffix [for]="dobPicker"></mat-datepicker-toggle>
+            <mat-datepicker #dobPicker></mat-datepicker>
+          </mat-form-field>
+        </div>
+
+        <div class="email-input" fxLayout="row" fxLayoutGap="5px">
+          <span class="email-icon" class="material-icons"> email </span>
+          <mat-form-field class="custom-email-field">
+            <input matInput placeholder="Email" name="email" required email ngModel>
+            <div *ngIf="registerForm.controls.email?.invalid && (registerForm.controls.email?.dirty || registerForm.submitted)">
+              <mat-error>Please enter a valid email address.</mat-error>
+            </div>
+          </mat-form-field>
+        </div>
+
+        <div fxLayout="row" fxLayoutGap="20px">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Password" name="password" required ngModel>
+          </mat-form-field>
+        
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Confirm Password" name="confirmPassword" required ngModel>
+            <div *ngIf="registerForm.controls.confirmPassword?.dirty && registerForm.controls.password?.value !== registerForm.controls.confirmPassword?.value" class="alert alert-danger">
+             <p style="color: red;">Passwords must match.</p> 
+            </div>
+          </mat-form-field>
+        </div>
+        
+
+        <div>
+          <mat-checkbox required formControlName="agree"> I agree to the <a href="#">Terms and Conditions <br> </a>of University of Commons* </mat-checkbox>
+        </div>
+
+      </mat-card-content>
+
+      <button mat-flat-button color="primary" class="btn-block">Register</button>
+
+    </form>
+  </mat-card>
+</div>

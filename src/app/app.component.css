@@ -1,0 +1,24 @@
+.nav-left-items {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: auto;
+  }
+  .logo {
+    height: 30px;
+  }
+  .logo-wrapper {
+    padding-right: 20px;
+  }
+  
+  
+  .nav-left-items a {
+    margin-right: 20px;
+  }
+
+  .nav-tool-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
